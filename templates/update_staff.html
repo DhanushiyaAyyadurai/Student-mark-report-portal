@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Staff</title>
+    <!-- Bootstrap CSS for styling -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eceff1;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+            background-color: #37474f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+        h2 {
+            color: #ffeb3b;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-control {
+            background-color: #455a64;
+            color: white;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+            border-color: #bd2130;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Update Staff Information</h2>
+        <form method="POST" action="{{ url_for('update_staff') }}">
+           
+
+            <!-- Hidden field to store the staff ID -->
+            <input type="hidden" name="staff_id" value="{{ staff.Staff_ID }}">
+
+            <div class="form-group">
+                <label for="name">Staff Name:</label>
+                <input type="text" id="name" name="name" class="form-control" value="{{ staff.Name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Staff Email:</label>
+                <input type="email" id="email" name="email" class="form-control" value="{{ staff.Email }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Staff Role:</label>
+                <input type="text" id="role" name="role" class="form-control" value="{{ staff.Role }}" required>
+            </div>
+
+            <!-- Update button -->
+            <button type="submit" class="btn btn-primary">Update Staff</button>
+            
+            <!-- Cancel button -->
+            <a href="{{ url_for('admin_staff_manage') }}" class="btn btn-danger">Cancel</a>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

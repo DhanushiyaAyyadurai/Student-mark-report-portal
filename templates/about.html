@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - School Name</title>
+
+    <!-- Link to Google Fonts for more modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Link to external CSS file for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url("{{ url_for('static', filename='about_bg.jpg') }}") no-repeat center center fixed; /* Background image */
+            background-size: cover; /* Cover the whole page */
+            color: #333;
+            text-align: center;
+        }
+
+        /* Header Section */
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect for header */
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        /* Navigation */
+        nav {
+            margin: 20px 0; /* Space above and below the nav */
+        }
+
+        nav ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            display: flex; /* Flexbox for horizontal layout */
+            justify-content: center; /* Center the nav items */
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Space between nav items */
+        }
+
+        nav a {
+            color: #fff; /* Link color */
+            text-decoration: none; /* Remove underline from links */
+            font-weight: bold; /* Bold text */
+            transition: color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Underline on hover */
+            color: #ffcc00; /* Change color on hover */
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px;
+            text-align: center;
+            background-color: rgba(159, 69, 69, 0.791); /* Light overlay */
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for content */
+        }
+
+        .content h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: #18050e;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: hsl(0, 33%, 98%);
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            position: relative; /* Changed to relative for footer */
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect for footer */
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>About Us</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('admission') }}">Admission</a></li>
+                <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+           
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <section class="content">
+        <h2>Our Vision & Mission</h2>
+        <p>At School Name, our vision is to nurture young minds and create a community of lifelong learners who thrive in an ever-changing world.</p>
+        <p>Our mission is to offer a holistic learning experience, empowering students to excel in academics and extracurricular activities.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 School Name. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

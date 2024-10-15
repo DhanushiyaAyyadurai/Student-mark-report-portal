@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Result</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #89fffd, #ef32d9); /* Gradient background */
+            color: #fff;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            background-color: #1e1e2f; /* Dark background for form box */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ce1c60; /* White text color */
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #c3c3c3; /* Lighter text for labels */
+        }
+
+        input[type="text"],
+        input[type="date"] {
+            width: 100%; /* Full width for input fields */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #333; /* Dark border for input */
+            margin-bottom: 20px;
+            font-size: 1rem;
+            background-color: #1e5397; /* Dark input background */
+            color: #fff; /* White text in input fields */
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #cb17d1;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #7400b8;
+        }
+
+        /* Centering the form and adding margin to the elements */
+        center {
+            display: block;
+        }
+
+        /* Responsive styling */
+        @media screen and (max-width: 480px) {
+            form {
+                padding: 30px;
+                max-width: 90%;
+            }
+
+            label, input[type="text"], input[type="date"], button {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="/student_login">
+        
+   
+            <h1>Check Result</h1>
+            <label for="roll_number">Roll Number:</label>
+            <input type="text" name="roll_number" id="roll_number" required>
+
+            <label for="dob">Date of Birth (YYYY-MM-DD):</label>
+            <input type="date" name="dob" id="dob" required>
+
+            <a href="{{ url_for('getemail') }}">Forgot Password?</a>
+
+            <button type="submit">Login</button>
+        
+    </form>
+</body>
+</html>

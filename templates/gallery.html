@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - School Name</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Light background for contrast */
+        }
+
+        header {
+            background-color: #404240; /* Dark header background */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect for header */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Larger font size for header */
+            margin: 0; /* Remove margin */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Slight shadow for text */
+        }
+
+        nav {
+            margin: 20px 0; /* Space above and below the nav */
+        }
+
+        nav ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            display: flex; /* Flexbox for horizontal layout */
+            justify-content: center; /* Center the nav items */
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Space between nav items */
+        }
+
+        nav a {
+            text-decoration: none; /* Remove underline from links */
+            color: white; /* Link color */
+            font-weight: bold; /* Bold text */
+            transition: color 0.3s; /* Smooth transition for hover effect */
+        }
+
+        nav a:hover {
+            color: #ffcc00; /* Change color on hover */
+        }
+
+        section.gallery {
+            padding: 40px 20px; /* More padding for the gallery section */
+            text-align: center; /* Center the text */
+        }
+
+        section.gallery h2 {
+            font-size: 2.2em; /* Larger font size for gallery heading */
+            color: #333; /* Dark color for the heading */
+            margin-bottom: 30px; /* Space below the heading */
+            text-transform: uppercase; /* Uppercase text for emphasis */
+            letter-spacing: 2px; /* Spacing between letters */
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+            gap: 15px; /* Space between images */
+            margin: auto; /* Center the grid */
+            max-width: 1200px; /* Maximum width for the gallery */
+        }
+
+        .gallery-grid img {
+            width: 100%; /* Responsive image width */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for images */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+        }
+
+        footer {
+            background-color: #404240; /* Dark footer background */
+            color: white;
+            text-align: center;
+            padding: 15px; /* Padding for footer */
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect for footer */
+        }
+
+        footer p {
+            margin: 0; /* Remove margin */
+            font-size: 1em; /* Footer font size */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Our School Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('admission') }}">Admission</a></li>
+                <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+               
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="gallery">
+        <h2>Memorable Moments</h2>
+        <div class="gallery-grid">
+            <img src="{{ url_for('static', filename='image1.jpg') }}" alt="School Event 1">
+            <img src="{{ url_for('static', filename='image2.jpg') }}" alt="School Event 2">
+            <img src="{{ url_for('static', filename='image3.jpg') }}" alt="School Event 3">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 School Name. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

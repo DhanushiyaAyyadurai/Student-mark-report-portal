@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Input</title>
+    <style>
+        /* Main styling for the body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe); /* Gradient background */
+            color: #fff; /* Text color white */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container styling */
+        .container {
+            background-color: rgba(0, 0, 0, 0.6); /* Transparent dark background */
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Soft shadow */
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Styling the header */
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #f1c40f; /* Vibrant yellow for emphasis */
+        }
+
+        /* Label styling */
+        label {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Input field styling */
+        input[type="number"] {
+            width: calc(100% - 20px); /* Full width minus padding */
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            background-color: #fff;
+            color: #333;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Input shadow */
+            outline: none;
+        }
+
+        /* Button styling */
+        button {
+            background-color: #f1c40f; /* Vibrant yellow */
+            color: #333;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #d4ac0d; /* Darker yellow on hover */
+        }
+
+        /* Media query for responsive design on smaller screens */
+        @media (max-width: 500px) {
+            .container {
+                padding: 20px;
+            }
+        .flash-message {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #f5c6cb;
+        border-radius: 4px;
+        font-weight: bold;
+        }
+            h2 {
+                font-size: 24px;
+            }
+
+            input[type="number"] {
+                font-size: 16px;
+                padding: 10px;
+            }
+            .back-button {
+            position: fixed; /* Fixed position */
+            top: 20px;  /* Distance from the top */
+            right: 20px;    /* Distance from the right */
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding for size */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            font-size: 16px; /* Font size */
+        }
+
+        .back-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+            button {
+                font-size: 14px;
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back Button -->
+<button class="back-button" onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    <div class="container">
+        <h2>Enter OTP</h2>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="flash-message">
+            {% for message in messages %}
+              <p>{{ message }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+        <form action="/admin/forgot/validateotp" method="POST">
+            <label for="otp">OTP:</label>
+            <input type="number" id="otp" name="otp" required>
+            <button type="submit">Validate OTP</button>
+        </form>
+    </div>
+</body>
+</html>

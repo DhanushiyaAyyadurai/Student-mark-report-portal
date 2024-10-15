@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #00c6ff, #0072ff); /* Gradient background */
+            color: #333; /* Darker text */
+            display: flex; /* Center container */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 30px; /* Padding for container */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect */
+            width: 400px; /* Fixed width */
+            text-align: center; /* Center align text */
+        }
+
+        h2 {
+            margin-bottom: 20px; /* Space below heading */
+            color: #0072ff; /* Blue color for heading */
+        }
+
+        label {
+            display: block; /* Block display for labels */
+            margin-bottom: 5px; /* Space below labels */
+            color: #555; /* Darker color for labels */
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%; /* Full width inputs */
+            padding: 10px; /* Padding for inputs */
+            margin-bottom: 15px; /* Space below inputs */
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 5px; /* Rounded corners */
+            transition: border-color 0.3s; /* Transition for border color */
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #0072ff; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        /* Styles for the login button */
+        .login-button {
+            background-color: #e67e22; /* Button color */
+            color: white; /* White text color */
+            border: none; /* No border */
+            padding: 10px; /* Padding for button */
+            width: 100%; /* Full width button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            transition: background-color 0.3s; /* Transition for background color */
+        }
+
+        .login-button:hover {
+            background-color: #d35400; /* Darker orange on hover */
+        }
+
+        /* Styles for the back button */
+        .back-button {
+            position: fixed; /* Fixed position */
+            top: 20px;  /* Distance from the top */
+            right: 20px;    /* Distance from the right */
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding for size */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            font-size: 16px; /* Font size */
+        }
+
+        .back-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .container {
+                width: 90%; /* Responsive width for small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back Button -->
+<button class="back-button" onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<div class="container">
+    <h2>Admin Login</h2>
+
+    <!-- Flash message block -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <div class="flash-message">
+        {% for message in messages %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('admin_login') }}">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <!-- Login button with unique class -->
+        <button type="submit" class="login-button">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

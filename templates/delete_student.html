@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Student</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Delete Student</h2>
+    <form method="POST" action="{{ url_for('delete_student') }}">
+        <label for="roll_number">Roll Number</label>
+        <input type="text" id="roll_number" name="roll_number" required>
+
+        <button type="submit">Delete Student</button>
+    </form>
+</div>
+
+</body>
+</html>

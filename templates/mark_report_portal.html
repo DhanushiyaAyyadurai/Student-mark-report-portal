@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #60b6cd;
+            color: #ecf0f1;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #096d41;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #34495e;
+        }
+
+        table, th, td {
+            border: 1px solid #ecf0f1;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #3a5369;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #34495e;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+    </style>
+    <title>Mark Report</title>
+</head>
+<body>
+
+<h2>Mark Report for {{ student.name }} (Roll Number: {{ student.roll_number }})</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Marks</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Tamil</td>
+            <td>{{ student.tamil_mark }}</td>
+            <td>{% if student.tamil_mark >= 35 %}Pass{% else %}Fail{% endif %}</td>
+        </tr>
+        <tr>
+            <td>English</td>
+            <td>{{ student.english_mark }}</td>
+            <td>{% if student.english_mark >= 35 %}Pass{% else %}Fail{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Maths</td>
+            <td>{{ student.maths_mark }}</td>
+            <td>{% if student.maths_mark >= 35 %}Pass{% else %}Fail{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Science</td>
+            <td>{{ student.science_mark }}</td>
+            <td>{% if student.science_mark >= 35 %}Pass{% else %}Fail{% endif %}</td>
+        </tr>
+        <tr>
+            <td>Social</td>
+            <td>{{ student.social_mark }}</td>
+            <td>{% if student.social_mark >= 35 %}Pass{% else %}Fail{% endif %}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Form to trigger PDF download -->
+<form action="{{ url_for('download_pdf_report', roll_number=student.roll_number, academic_year=student.academic_year, class_year=student.class_year) }}" method="GET">
+    <!-- Sending roll number, academic year, and class year via hidden inputs -->
+    <input type="hidden" name="roll_number" value="{{ student.roll_number }}">
+    <input type="hidden" name="academic_year" value="{{ student.academic_year }}">
+    <input type="hidden" name="class_year" value="{{ student.class_year }}">
+    
+    <!-- Submit button to download the PDF -->
+    <button type="submit">Download Report as PDF</button>
+</form>
+
+</body>
+</html>

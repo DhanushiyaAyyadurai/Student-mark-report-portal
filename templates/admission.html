@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission - School Name</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #ffe0b2, #ffccbc); /* Warm gradient background */
+            color: #333;
+            text-align: center;
+            animation: fadeIn 1s ease-in; /* Fade-in effect for body */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Header Section */
+        header {
+            background-color: #e65100; /* Deep orange header */
+            padding: 20px;
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Shadow effect */
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Text shadow */
+        }
+
+        nav {
+            margin: 15px 0; /* Space above and below the nav */
+        }
+
+        nav ul {
+            list-style: none; /* Remove bullet points */
+            padding: 0; /* Remove padding */
+            display: flex; /* Flexbox for horizontal layout */
+            justify-content: center; /* Center the nav items */
+        }
+
+        nav ul li {
+            margin: 0 15px; /* Space between nav items */
+        }
+
+        nav a {
+            color: #ffb300; /* Bright yellow for links */
+            text-decoration: none; /* Remove underline */
+            font-weight: bold; /* Bold text */
+            transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effect */
+        }
+
+        nav a:hover {
+            color: #ffd600; /* Lighter yellow on hover */
+            text-decoration: underline; /* Underline on hover */
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        /* Content Section */
+        .content {
+            padding: 50px;
+            text-align: left; /* Align text to the left for better readability */
+            margin: 50px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for content */
+            background-color: rgba(255, 255, 255, 0.9); /* Light background for content */
+        }
+
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #d32f2f; /* Red for headings */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Text shadow for headings */
+        }
+
+        /* Classes Section */
+        .classes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Space out class boxes */
+            margin-top: 30px; /* Space above classes */
+        }
+
+        .class-box {
+            background-color: #64b5f6; /* Light blue */
+            border: 2px solid #1e88e5; /* Darker blue border */
+            border-radius: 10px;
+            padding: 20px;
+            width: calc(30% - 20px); /* Adjusted width for responsiveness */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+            margin-bottom: 20px; /* Space between rows of boxes */
+        }
+
+        .class-box:hover {
+            transform: scale(1.05); /* Scale effect on hover */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow effect on hover */
+        }
+
+        .class-title {
+            font-size: 1.5em;
+            color: #0d47a1; /* Dark blue for class titles */
+        }
+
+        .class-description {
+            color: #37474f; /* Dark gray for text */
+            font-size: 1.1em;
+        }
+
+        /* Footer Section */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e65100; /* Match header color */
+            color: #fff;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.3); /* Shadow effect on footer */
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* List Styling */
+        ul {
+            list-style-type: disc; /* Bulleted list */
+            padding-left: 20px; /* Indent list */
+            margin: 10px 0; /* Space above and below the list */
+        }
+
+        li {
+            margin-bottom: 10px; /* Space between list items */
+            color: #1e88e5; /* Blue color for list items */
+            font-size: 1.1em; /* Slightly larger font for list items */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Admission Information</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('admission') }}">Admission</a></li>
+                <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
+             
+                <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="content">
+        <h2>Admission Guidelines</h2>
+        <p>Our school welcomes students from diverse backgrounds. Please review the guidelines and requirements for different grades.</p>
+        
+        <h3>Age Requirements:</h3>
+        <p>For L.K.G: 3 years 6 months as on June 1st of the year of admission.</p>
+        
+        <h3>Documents Required:</h3>
+        <ul>
+            <li>Birth Certificate</li>
+            <li>Aadhar Card</li>
+            <li>Previous School's TC (if applicable)</li>
+        </ul>
+
+        <h3>Classes Offered:</h3>
+        <div class="classes">
+            <div class="class-box">
+                <div class="class-title">Class 1</div>
+                <div class="class-description">Introduction to basic subjects and development of fundamental skills.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 2</div>
+                <div class="class-description">Building on foundational skills and introducing new concepts.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 3</div>
+                <div class="class-description">Emphasis on reading, writing, and arithmetic.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 4</div>
+                <div class="class-description">Enhancement of critical thinking and problem-solving skills.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 5</div>
+                <div class="class-description">Introduction to more complex subjects like science and social studies.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 6</div>
+                <div class="class-description">Transition to middle school with increased focus on academics.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 7</div>
+                <div class="class-description">Development of analytical and critical thinking skills.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 8</div>
+                <div class="class-description">Preparation for higher-level subjects and increased responsibility.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 9</div>
+                <div class="class-description">Introduction to advanced topics and specialization.</div>
+            </div>
+            <div class="class-box">
+                <div class="class-title">Class 10</div>
+                <div class="class-description">Comprehensive preparation for board exams and future studies.</div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer>
+        <p>&copy; 2024 School Name. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
