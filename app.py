@@ -58,7 +58,12 @@ class Students(db.Model):
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('index.html')
+
+# Route for user login page
+@app.route('/user_login')
+def user_login():
+    return render_template('login.html')
 
 @app.route('/about')
 def about():
@@ -563,7 +568,7 @@ def delete_student(student_id):
     else:
         flash('Student not found!')
 
-    return redirect(url_for('admin_dashboard'))
+    return redirect(url_for('admin_student_manage'))
 
 
 # Admin logout route

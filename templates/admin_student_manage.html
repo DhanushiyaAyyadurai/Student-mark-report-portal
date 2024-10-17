@@ -74,6 +74,15 @@
             border-radius: 5px;
             cursor: pointer;
         }
+        .flash-message {
+            background-color: #f8d7da;
+            color: #05823f;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            font-weight: bold;
+        }
         .btn-warning {
             background-color: #f39c12;
         }
@@ -137,7 +146,7 @@
     </div>
 
     <div class="container">
-        <!-- Flash Messages -->
+        
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
             <div class="flash-messages">

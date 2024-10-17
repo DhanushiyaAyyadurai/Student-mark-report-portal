@@ -71,6 +71,31 @@
         center {
             display: block;
         }
+        .flashes {
+            background-color: #ffc107;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            color: #333;
+        }
+        
+        /* Styles for the back button */
+        .back-button {
+            position: fixed; /* Fixed position */
+            top: 20px;  /* Distance from the top */
+            right: 20px;    /* Distance from the right */
+            background-color: #4CAF50; /* Green background */
+            color: white; /* White text */
+            padding: 10px 20px; /* Padding for size */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
+            font-size: 16px; /* Font size */
+        }
+
+        .back-button:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
 
         /* Responsive styling */
         @media screen and (max-width: 480px) {
@@ -86,17 +111,37 @@
     </style>
 </head>
 <body>
+    <!-- Back Button -->
+<button class="back-button" onclick="goBack()">Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
     <form method="POST" action="/student_login">
         
    
             <h1>Check Result</h1>
+                <!-- Display flash messages if any -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flashes">
+                <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+                </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
             <label for="roll_number">Roll Number:</label>
             <input type="text" name="roll_number" id="roll_number" required>
 
             <label for="dob">Date of Birth (YYYY-MM-DD):</label>
             <input type="date" name="dob" id="dob" required>
 
-            <a href="{{ url_for('getemail') }}">Forgot Password?</a>
+            
 
             <button type="submit">Login</button>
         

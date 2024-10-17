@@ -11,11 +11,15 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9; /* Light background for contrast */
+            background-color: #f3f6fa; /* Soft light blue background */
+            font-size: 0.9em; /* Reduced font size */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure footer stays at the bottom */
         }
 
         header {
-            background-color: #404240; /* Dark header background */
+            background-color: #283593; /* Dark blue header background */
             color: white;
             padding: 20px;
             text-align: center;
@@ -23,13 +27,14 @@
         }
 
         h1 {
-            font-size: 2.5em; /* Larger font size for header */
+            font-size: 2em; /* Smaller font size for header */
             margin: 0; /* Remove margin */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Slight shadow for text */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Enhanced text shadow */
+            letter-spacing: 1.5px; /* Spaced-out letters */
         }
 
         nav {
-            margin: 20px 0; /* Space above and below the nav */
+            margin-top: 10px;
         }
 
         nav ul {
@@ -40,67 +45,70 @@
         }
 
         nav ul li {
-            margin: 0 15px; /* Space between nav items */
+            margin: 0 20px; /* Space between nav items */
         }
 
         nav a {
             text-decoration: none; /* Remove underline from links */
             color: white; /* Link color */
             font-weight: bold; /* Bold text */
-            transition: color 0.3s; /* Smooth transition for hover effect */
+            font-size: 1em; /* Adjusted font size */
+            transition: color 0.3s ease-in-out; /* Smooth transition for hover effect */
         }
 
         nav a:hover {
-            color: #ffcc00; /* Change color on hover */
+            color: #ffcc33; /* Bright gold color on hover */
         }
 
         section.gallery {
-            padding: 40px 20px; /* More padding for the gallery section */
+            flex: 1; /* Allow the gallery to grow and take up space */
+            padding: 20px; /* Added padding for the gallery section */
             text-align: center; /* Center the text */
+            background-color: #fff; /* White background for gallery section */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for the section */
         }
 
         section.gallery h2 {
-            font-size: 2.2em; /* Larger font size for gallery heading */
-            color: #333; /* Dark color for the heading */
-            margin-bottom: 30px; /* Space below the heading */
-            text-transform: uppercase; /* Uppercase text for emphasis */
+            font-size: 1.8em; /* Adjusted font size for gallery heading */
+            color: #283593; /* Dark blue color for the heading */
+            margin: 20px 0; /* Space below the heading */
+            text-transform: uppercase; /* Uppercase text */
             letter-spacing: 2px; /* Spacing between letters */
         }
 
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-            gap: 15px; /* Space between images */
+            grid-template-columns: repeat(3, 1fr); /* Three columns for images */
+            gap: 20px; /* Space between images */
             margin: auto; /* Center the grid */
             max-width: 1200px; /* Maximum width for the gallery */
         }
 
         .gallery-grid img {
             width: 100%; /* Responsive image width */
+            height: 300px; /* Fixed height for uniformity */
+            object-fit: cover; /* Crop the images to fit */
             border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for images */
-            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Shadow for images */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
         }
 
         .gallery-grid img:hover {
-            transform: scale(1.05); /* Scale effect on hover */
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+            transform: scale(1.05); /* Slight zoom effect on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
         }
 
         footer {
-            background-color: #404240; /* Dark footer background */
+            background-color: #283593; /* Dark footer background */
             color: white;
             text-align: center;
             padding: 15px; /* Padding for footer */
-            position: relative;
-            bottom: 0;
-            width: 100%;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect for footer */
+            font-size: 0.85em; /* Smaller footer font size */
         }
 
         footer p {
             margin: 0; /* Remove margin */
-            font-size: 1em; /* Footer font size */
         }
     </style>
 </head>
@@ -114,7 +122,6 @@
                 <li><a href="{{ url_for('about') }}">About Us</a></li>
                 <li><a href="{{ url_for('admission') }}">Admission</a></li>
                 <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
-               
                 <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
             </ul>
         </nav>
@@ -130,7 +137,7 @@
     </section>
 
     <footer>
-        <p>&copy; 2024 School Name. All rights reserved.</p>
+        <p>&copy; 2024 Bharathi Vidhyalaya. All rights reserved.</p>
     </footer>
 </body>
 

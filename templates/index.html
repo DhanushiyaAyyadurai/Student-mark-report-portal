@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Vidhyashram</title>
+    <title>Home - Bharathi Vidhyalaya</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"> <!-- Importing Poppins font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: url("{{ url_for('static', filename='childrens.jpg') }}") no-repeat center center fixed; /* Correct path for the image */
-            background-size: cover; /* Ensure the image covers the entire background */
+            background: url("{{ url_for('static', filename='childrens.jpg') }}") no-repeat center center fixed;
+            background-size: cover;
             color: #333;
-            text-align: center;
         }
 
         header {
-            background-color: #2c3e50;
-            padding: 20px;
+            background-color: rgba(109, 157, 205, 0.807);
+            padding: 15px;
             color: white;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Logo styling */
+        header img {
+            height: 80px; /* Adjusted logo size */
         }
 
         nav ul {
@@ -29,149 +37,159 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: center;
         }
 
         nav ul li {
-            margin: 0 15px;
+            margin: 0 10px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #f39c12;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1em;
             transition: color 0.3s ease;
+            font-family: 'Cinzel', serif;
         }
 
         nav ul li a:hover {
             color: #fff;
         }
 
-        .hero {
-            padding: 60px 20px;
-            background: rgba(0, 0, 0, 0.5); /* Optional overlay to make the text more visible */
-            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        /* Styling for login button */
+        .login-btn {
+            padding: 8px 15px;
+            background-color: #f39c12;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            font-family: 'Cinzel', serif;
+            transition: background-color 0.3s ease;
         }
 
-        .hero h2 {
-            font-size: 3em;
-            color: #fff;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        .login-btn:hover {
+            background-color: #e67e22;
         }
+
+        .hero {
+        padding: 80px 20px;
+        background: rgba(0, 0, 0, 0.522);
+        box-shadow: 0 4px 20px rgba(123, 105, 121, 0.5);
+        color: #fff;
+        text-align: left;
+        margin: 20px; 
+        border-radius: 10px;
+}
+
+
+    .hero h2 {
+        font-size: 2.5em; /* Slightly larger */
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8); /* Stronger shadow */
+        margin-left: 0; /* Remove left margin for better centering */
+        font-family: 'Cinzel', serif;
+}
+
 
         .hero p {
-            font-size: 1.5em;
-            margin-top: 20px;
-            color: #fff;
+            font-size: 1.2em;
+            margin-top: 15px;
+            margin-left: 50px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .school-name {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5em;
+            color: #ff9f05;
+            text-align: center;
+            text-transform: uppercase;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+            margin: 0;
+            padding-top: 20px;
         }
 
         .features {
             display: flex;
             justify-content: space-around;
-            padding: 50px 0;
-            background-color: #34495e;
+            padding: 20px 0;
         }
 
         .feature-item {
             background-color: #f39c12;
             color: white;
-            padding: 20px;
+            padding: 10px;
             border-radius: 10px;
-            width: 30%;
+            width: 28%;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .feature-item h3 {
-            font-size: 1.8em;
-            margin-bottom: 15px;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-family: 'Cinzel', serif;
         }
 
         .feature-item p {
-            font-size: 1.1em;
+            font-size: 1em;
+            font-family: 'Poppins', sans-serif;
         }
-        .infrastructure-gallery {
-    padding: 20px; /* Adjust this value as needed */
-    /* background-color: #404240; Remove this line */
-}
-
-.infrastructure-gallery h2 {
-    margin-bottom: 30px;
-    font-size: 2.2em;
-    color: #fff;
-    text-align: center; /* Center the heading */
-}
-
-.gallery-images {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.gallery-images img {
-    width: 30%; /* Adjust the size based on your layout */
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
 
         footer {
-            background-color: #2c3e50;
-            padding: 20px;
+            background-color: rgba(38, 125, 213, 0.82);
+            padding: 10px;
             color: #fff;
-            position: relative;
-            bottom: 0;
             width: 100%;
             text-align: center;
+            position: relative;
         }
-
-        canvas {
-    max-width: 90%; /* Ensure canvas doesn't exceed 90% of the viewport width */
-    height: auto; /* Maintain aspect ratio */
-    margin: 0 auto;
-}
-
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Welcome to Vidhyashram</h1>
+        <!-- Add school logo -->
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="School Logo">
         <nav>
             <ul>
                 <li><a href="{{ url_for('home') }}">Home</a></li>
                 <li><a href="{{ url_for('about') }}">About Us</a></li>
                 <li><a href="{{ url_for('admission') }}">Admission</a></li>
                 <li><a href="{{ url_for('gallery') }}">Gallery</a></li>
-                
                 <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
             </ul>
         </nav>
+        <!-- Login button in the top-right corner -->
+        <a href="{{ url_for('user_login') }}" class="login-btn">Login</a>
     </header>
 
+    <!-- School Name Highlight -->
+    <h1 class="school-name">Bharathi Vidhyalaya</h1>
+
     <section class="hero">
+        <center>
         <h2>Welcome to a place where learning meets inspiration!</h2>
         <p>Explore our school and discover a vibrant world of learning, growth, and creativity.</p>
+    </center>
     </section>
 
     <section class="features">
         <div class="feature-item">
-            <h3>Modern Education</h3>
-            <p>We offer a balanced curriculum that integrates modern teaching techniques.</p>
+            <h3 >Modern Education</h3>
+            <p style="color:rgb(12, 11, 11)">We offer a balanced curriculum that integrates modern teaching techniques.</p>
         </div>
         <div class="feature-item">
             <h3>Expert Faculty</h3>
-            <p>Our qualified teachers ensure every student achieves their academic goals.</p>
+            <p style="color:rgb(12, 11, 11)">Our qualified teachers ensure every student achieves their academic goals.</p>
         </div>
         <div class="feature-item">
-            <h3>State-of-the-Art Facilities</h3>
-            <p>Our campus features the best facilities for sports, arts, and science exploration.</p>
+            <h3 >State-of-the-Art Facilities</h3>
+            <p style="color:rgb(12, 11, 11)">Our campus features the best facilities for sports, arts, and science exploration.</p>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Vidhyashram. All rights reserved.</p>
+        <p>&copy; 2024 Bharathi Vidhyalaya. All rights reserved.</p>
     </footer>
 
 </body>
